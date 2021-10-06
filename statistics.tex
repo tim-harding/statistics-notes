@@ -1,0 +1,82 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{multicol}
+\usepackage[margin=1in]{geometry}
+
+% For math fonts, if needed
+% \usepackage{amssymb}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\title{Probability and Statistics Notes}
+\author{Tim Harding}
+\date{Autumn 2021}
+
+\begin{document}
+\begin{multicols*}{2}
+
+\section{Probability}
+
+\subsection{Properties of Probability}
+
+\textbf{Random experiments}: Experiments where the outcome is uncertain.
+
+\textbf{Outcome space}: The set of all possible outcomes $S$.
+
+\textbf{Event}: A set of outcomes $A$ such that $A \in S$. The event $A$ has \textit{occurred} when some outcome of a random experiment $a$ occurs where $a \in A$.
+
+\textbf{Mutually exclusive events}: $A$ and $B$ are mutually exclusive if $A \cap B = \emptyset$
+
+\textbf{Exhaustive events}: The set $A_1, A_2, \ldots, A_k$ is exhaustive if $A_1 \cup A_2 \cup \ldots \cup A_k = S$
+
+\textbf{Frequency}: $N(A)$ is the number of times $A$ occurred in $n$ repetitions. 
+
+\textbf{Relative frequency}: $\frac{N(A)}{n}$
+
+\textbf{Probability}: $P(A)$ is the relative frequency of $A$ as $n$ grows arbitrarily large. It satisfies the following properties for the mutually exclusive events $A_1, A_2, \ldots, A_k$ where $k$ may be infinite:
+\begin{enumerate}
+    \item $P(A_n) \geq 0$
+    \item $P(S) = 1$
+    \item $P(A_1 \cup A_2 \cup \ldots \cup A_k) = \sum_{n=1}^k{P(A_n)}$
+\end{enumerate}
+
+Also note that
+\[P(A) = \frac{N(A)}{N(S)}\]
+when discussing permutations and combinations. 
+
+\subsection{Methods of Enumeration}
+
+\textbf{Multiplication Principle}: Given experiments $E_1$ with $n_1$ possible outcomes and $E_2$ with $n_2$ possible outcomes, the composite experiment $E_1 E_2$ has $n_1 n_2$ possible outcomes. 
+
+\textbf{Permutation}: An arrangement of $n$ objects. $n!$ arrangements are possible. 
+
+\textbf{Ordered sample}: An ordered sample of $r$ objects taken from a set of $n$ objects. 
+
+\textbf{Sampling with replacement}: When a given object may be selected multiple times in a sample. There are $n^r$ ordered samples with replacement.
+
+\textbf{Sampling without replacement}: Each object may be selected only once in a sample. 
+
+\textbf{Permutations of $\mathbf{n}$ taken $\mathbf{r}$}: 
+The number of permutations for $n$ objects filling $r$ positions.
+\[{}_n P_r = \frac{n!}{(n-r)!}\]
+
+There are ${}_n P_r$ ordered samples without replacement.
+
+\textbf{Combinations of $\mathbf{n}$ taken $\mathbf{r}$}: The number of unordered subsets of size $r$ that can be selected from $n$ objects where $r \leq n$. This is pronounced \textit{n choose r}.
+\[{}_n C_r = \begin{pmatrix}
+    n \\
+    r
+\end{pmatrix} = \frac{n!}{r! (n-r)!} = \frac{{}_n P_r}{r!}\]
+
+There are ${}_n C_r$ unordered samples without replacement.
+
+\textbf{Binomial coefficients}: The numbers $n$ and $r$.
+
+\textbf{Distinguishable permutation}: One of the ${}_n C_r$ permutations of $n$ objects. 
+
+\end{multicols*}
+\end{document}
