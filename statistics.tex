@@ -96,7 +96,51 @@ There are ${}_n C_r$ unordered samples without replacement.
 
 \subsection{Conditional Probability}
 
+\textbf{High-level notes}:
+\begin{enumerate}
+    \item Tables are useful for evaluating conditional probabilities.
+\end{enumerate}
 
+\textbf{Conditional Probability Formula}:
+\begin{equation*}
+    P(A|B) = \frac{P(A \cap B)}{P(B)}
+\end{equation*}
+
+\textbf{Multiplicative rule}:
+This is just a rearrangement of the conditional probability formula.
+\begin{equation*}
+    P(A \cap B) = P(A|B) P(B) = P(B|A) P(A)
+\end{equation*}
+
+\subsection{Independence}:
+
+\textbf{Independence test}: $P(A \cap B) = P(A) P(B)$
+
+If $A$ and $B$ are independent, then so are the following:
+\begin{enumerate}
+    \item $A'$ and $B$
+    \item $A$ and $B'$
+    \item $A'$ and $B'$
+\end{enumerate}
+
+\subsection{Bayes' Theorem}
+
+\textbf{Law of Total Probability}: If the events $A_1, \ldots, A_k$ are mutually exclusive and exhaustive, then for any other event $B$,
+\begin{equation*}
+    B = (B \cap A_1) \cup \ldots \cup (B \cap A_k)
+\end{equation*}
+Therefore,
+\begin{align*}
+    P(B) &= \sum_{i = 1}^k P(B \cap A_1) \\
+    &= \sum_{i = 1}^k P(B|A_i) P(A_i)
+\end{align*}
+
+\textbf{Bayes' Theorem}:
+Allows us to find $P(A_j|B)$ if we have information about $P(B|A_j)$. This derivation uses the conditional probability theorem followed by the multiplicative rule and the law of total probability.
+\begin{align*}
+    P(A_j|B) &= \frac{P(A_j \cap B)}{P(B)} \\
+    &= \frac{P(B|A_j) P(A_j)}{\sum_{i = 1}^k P(B|A_i) P(A_i)}
+\end{align*}
 
 \end{multicols*}
 \end{document}
