@@ -33,7 +33,21 @@
 
 \textbf{Exhaustive events}: The set $A_1, A_2, \ldots, A_k$ is exhaustive if $A_1 \cup A_2 \cup \ldots \cup A_k = S$
 
-\textbf{Frequency}: $N(A)$ is the number of times $A$ occurred in $n$ repetitions. 
+\textbf{Commutativity and Associativity}: Sets are commutative and associative.
+
+\textbf{Distributive laws}:
+\begin{enumerate}
+    \item $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+    \item $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+\end{enumerate}
+
+\textbf{DeMorgan's laws}:
+\begin{enumerate}
+    \item $(A \cap B)' = A' \cup B'$
+    \item $(A \cup B)' = A' \cap B'$
+\end{enumerate}
+
+\textbf{Frequency}: $N(A)$ is the number of times $A$ occurred in $n$ repetitions.
 
 \textbf{Relative frequency}: $\frac{N(A)}{n}$
 
@@ -46,21 +60,23 @@
 
 Also note that
 \[P(A) = \frac{N(A)}{N(S)}\]
-when discussing permutations and combinations. 
+when discussing permutations and combinations.
+
+\textbf{Additive law}: $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
 
 \subsection{Methods of Enumeration}
 
-\textbf{Multiplication Principle}: Given experiments $E_1$ with $n_1$ possible outcomes and $E_2$ with $n_2$ possible outcomes, the composite experiment $E_1 E_2$ has $n_1 n_2$ possible outcomes. 
+\textbf{Multiplication Principle}: Given experiments $E_1$ with $n_1$ possible outcomes and $E_2$ with $n_2$ possible outcomes, the composite experiment $E_1 E_2$ has $n_1 n_2$ possible outcomes.
 
-\textbf{Permutation}: An arrangement of $n$ objects. $n!$ arrangements are possible. 
+\textbf{Permutation}: An arrangement of $n$ objects. $n!$ arrangements are possible.
 
-\textbf{Ordered sample}: An ordered sample of $r$ objects taken from a set of $n$ objects. 
+\textbf{Ordered sample}: An ordered sample of $r$ objects taken from a set of $n$ objects.
 
 \textbf{Sampling with replacement}: When a given object may be selected multiple times in a sample. There are $n^r$ ordered samples with replacement.
 
-\textbf{Sampling without replacement}: Each object may be selected only once in a sample. 
+\textbf{Sampling without replacement}: Each object may be selected only once in a sample.
 
-\textbf{Permutations of $\mathbf{n}$ taken $\mathbf{r}$}: 
+\textbf{Permutations of $\mathbf{n}$ taken $\mathbf{r}$}:
 The number of permutations for $n$ objects filling $r$ positions.
 \[{}_n P_r = \frac{n!}{(n-r)!}\]
 
@@ -76,7 +92,11 @@ There are ${}_n C_r$ unordered samples without replacement.
 
 \textbf{Binomial coefficients}: The numbers $n$ and $r$.
 
-\textbf{Distinguishable permutation}: One of the ${}_n C_r$ permutations of $n$ objects. 
+\textbf{Distinguishable permutation}: One of the ${}_n C_r$ permutations of $n$ objects.
+
+\subsection{Conditional Probability}
+
+
 
 \end{multicols*}
 \end{document}
