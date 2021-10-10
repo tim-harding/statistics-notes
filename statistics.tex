@@ -4,10 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{multicol}
-\usepackage[margin=1in]{geometry}
-
-% For math fonts, if needed
-% \usepackage{amssymb}
+\usepackage[margin=0.5in]{geometry}
 
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
@@ -45,6 +42,15 @@
 \begin{enumerate}
     \item $(A \cap B)' = A' \cup B'$
     \item $(A \cup B)' = A' \cap B'$
+\end{enumerate}
+
+\textbf{Some primitive theorems}:
+These are given as 1.1-1 through 1.1-4
+\begin{enumerate}
+    \item $P(A) = 1 - P(A')$
+    \item $P(\emptyset) = 0$
+    \item $A \subset B \implies P(A) \leq P(B)$
+    \item $P(A) \leq 1$
 \end{enumerate}
 
 \textbf{Frequency}: $N(A)$ is the number of times $A$ occurred in $n$ repetitions.
@@ -112,7 +118,7 @@ This is just a rearrangement of the conditional probability formula.
     P(A \cap B) = P(A|B) P(B) = P(B|A) P(A)
 \end{equation*}
 
-\subsection{Independence}:
+\subsection{Independence}
 
 \textbf{Independence test}: $P(A \cap B) = P(A) P(B)$
 
