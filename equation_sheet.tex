@@ -1,0 +1,122 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{multicol}
+\usepackage[margin=0.5in]{geometry}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+\newcommand{\var}{\text{Var}}
+
+\begin{document}
+\begin{multicols*}{2}
+
+\begin{enumerate}
+    \item $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+    \item $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+\end{enumerate}
+
+\begin{enumerate}
+    \item $(A \cap B)' = A' \cup B'$
+    \item $(A \cup B)' = A' \cap B'$
+\end{enumerate}
+
+\begin{align*}
+    {}_n P_r = \frac{n!}{(n-r)!}
+\end{align*}
+
+\begin{align*}
+    \begin{pmatrix}
+        n \\
+        r
+    \end{pmatrix} = \frac{n!}{r! (n-r)!}
+\end{align*}
+
+\begin{align*}
+    P(A|B) = \frac{P(A \cap B)}{P(B)}
+\end{align*}
+
+\begin{align*}
+    P(A \cap B) = P(A|B) P(B) = P(B|A) P(A)
+\end{align*}
+
+\begin{align*}
+    P(A_j|B) \frac{P(A_j \cap B)}{P(B)} = \frac{P(B|A_j) P(A_j)}{\sum_{i = 1}^k P(B|A_i) P(A_i)}
+\end{align*}
+
+\subsubsection{Mean}
+\begin{align*}
+    \mu = \sum x \times p(x)
+\end{align*}
+
+\begin{align*}
+    \mu = E(X) &= \sum_{x \in D} x \times f(x) \\
+    E(u(X)) &= \sum_{x \in D} u(x) \times f(x) \\
+    &= E(c_1 u_1(X) + c_2 u_2(X)) \\
+    &= c_1 E(u_1(X)) + c_2 E(u_2(X))
+\end{align*}
+
+\subsection{Special mathematical expectations}
+
+\begin{align*}
+    \sigma^2 &= E((X - \mu)^2) \\
+    &= \sum_{x \in D} (x - \mu)^2 \times f(x) & \text{Definition formula} \\
+    &= E(X^2) - \mu^2 & \text{Computation formula}
+\end{align*}
+
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        & Variance & Standard deviation \\ \hline
+        Population & $\sigma^2$ & $\sigma$ \\ \hline
+        Sample & $s^2$ & $s$ \\ \hline
+    \end{tabular}
+\end{center}
+
+\begin{align*}
+    s^2 &= \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x})^2 \\
+    &= \frac{1}{n - 1} \sum_{i = 1}^n (x_i^2 - n\bar{x}^2)
+\end{align*}
+
+\begin{align*}
+    \var(cX) &= c^2 \var(X) \\
+    \var(X + c) &= \var(X)
+\end{align*}
+
+\subsection{Bernoulli distribution}
+
+Used for experiments where there are two outcomes.
+
+\begin{align*}
+    f(x) &= p^x (1-p)^{1-x} \\
+    E(X) &= p \\
+    \var(X) &= p(1-p)
+\end{align*}
+
+\subsection{Binomial distribution}
+
+\begin{align*}
+    f(x) &= \begin{pmatrix}
+        n \\
+        x
+    \end{pmatrix} p^x (1-p)^{n-x} \\
+    E(X) &= np \\
+    \var(X) &= np(1-p) \\
+    \text{Stdev}(X) &= \sqrt{np(1-p)}
+\end{align*}
+
+\subsection{Poisson distribution}
+
+\begin{align*}
+    f(x) &= \frac{e^{-\lambda} \lambda^x}{x!} \\
+    E(X) &= \lambda \\
+    \var(X) &= \lambda
+\end{align*}
+
+The poisson distribution can be used to approximate a binomial distribution when $n$ is large and $p$ is small.
+
+\end{multicols*}
+\end{document}
