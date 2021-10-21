@@ -10,6 +10,10 @@
 \setlength{\parskip}{1em}
 
 \newcommand{\var}{\text{Var}}
+\newcommand{\bernoulli}{\text{Bernoulli}}
+\newcommand{\binomial}{\text{Binomial}}
+\newcommand{\poisson}{\text{Poisson}}
+\newcommand{\stdev}{\text{Stdev}}
 
 \title{Probability and Statistics Notes}
 \author{Tim Harding}
@@ -167,37 +171,25 @@ Allows us to find $P(A_j|B)$ if we have information about $P(B|A_j)$. This deriv
 \subsection{Discrete random variables}
 
 \subsubsection{Probability Mass Function}
-$f(x)$ gives the probability of each value $x$ that a random variable $X$ can take on.
+$f(x) = p(x) = f(X = x)$ gives the probability of each value $x$ that a random variable $X$ can take on.
 
 \subsubsection{Cumulative Distribution Function}
 \begin{align*}
     F(x) = f(X \leq x)
 \end{align*}
 
-\subsection{Mathematical Expectation}
-
-\subsubsection{Mean}
+\subsection{Mathematical expectation}
 \begin{align*}
-    E(X) = \mu_x = \sum x \times p(x)
+    \mu = E(X) = \sum_{x \in D} x \times f(x)
 \end{align*}
-
-\subsection{Mathematical expectations}
-
 \begin{align*}
-    \mu = E(X) &= \sum_{x \in D} x \times f(x) \\
-    E(u(X)) &= \sum_{x \in D} u(x) \times f(x) \\
-    &= E(c_1 u_1(X) + c_2 u_2(X)) \\
-    &= c_1 E(u_1(X)) + c_2 E(u_2(X))
+    E(u(X)) = \sum_{x \in D} u(x) \times f(x)
+\end{align*}
+\begin{align*}
+    E(c_1 u_1(X) + c_2 u_2(X)) = c_1 E(u_1(X)) + c_2 E(u_2(X))
 \end{align*}
 
 \subsection{Special mathematical expectations}
-
-\begin{align*}
-    \sigma^2 &= E((X - \mu)^2) \\
-    &= \sum_{x \in D} (x - \mu)^2 \times f(x) & \text{Definition formula} \\
-    &= E(X^2) - \mu^2 & \text{Computation formula}
-\end{align*}
-
 \begin{center}
     \begin{tabular}{|c|c|c|}
         \hline
@@ -208,19 +200,25 @@ $f(x)$ gives the probability of each value $x$ that a random variable $X$ can ta
 \end{center}
 
 \begin{align*}
+    \var(X) = \sigma^2 &= E((X - \mu)^2) \\
+    &= \sum_{x \in D} (x - \mu)^2 \times f(x) & \text{Definition formula} \\
+    &= E(X^2) - \mu^2 & \text{Computation formula}
+\end{align*}
+\begin{align*}
     s^2 &= \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x})^2 \\
     &= \frac{1}{n - 1} \sum_{i = 1}^n (x_i^2 - n\bar{x}^2)
 \end{align*}
-
 \begin{align*}
     \var(cX) &= c^2 \var(X) \\
     \var(X + c) &= \var(X)
 \end{align*}
+\begin{align*}
+    \stdev(X) &= \sqrt{\var(X)}
+\end{align*}
 
 \subsection{Bernoulli distribution}
 
-Used for experiments where there are two outcomes.
-
+Used for experiments where there are two outcomes. $p \equiv$ probability of success for each experiment. $X \sim \bernoulli(p)$.
 \begin{align*}
     f(x) &= p^x (1-p)^{1-x} \\
     E(X) &= p \\
@@ -228,26 +226,24 @@ Used for experiments where there are two outcomes.
 \end{align*}
 
 \subsection{Binomial distribution}
-
+$n \equiv$ number of trials, $p \equiv$ probability of success for each trial.
 \begin{align*}
+    X &\sim \binomial(n, p) \\
     f(x) &= \begin{pmatrix}
         n \\
         x
     \end{pmatrix} p^x (1-p)^{n-x} \\
     E(X) &= np \\
-    \var(X) &= np(1-p) \\
-    \text{Stdev}(X) &= \sqrt{np(1-p)}
+    \var(X) &= np(1-p)
 \end{align*}
 
 \subsection{Poisson distribution}
-
+Used when you expect to see $\lambda$ occurances over some interval. Also used to approximate a binomial distribution when $n$ is large and $p$ is small.
 \begin{align*}
     f(x) &= \frac{e^{-\lambda} \lambda^x}{x!} \\
     E(X) &= \lambda \\
     \var(X) &= \lambda
 \end{align*}
-
-The poisson distribution can be used to approximate a binomial distribution when $n$ is large and $p$ is small.
 
 \end{multicols*}
 \end{document}
