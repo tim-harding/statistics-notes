@@ -14,6 +14,11 @@
 \newcommand{\binomial}{\text{Binomial}}
 \newcommand{\poisson}{\text{Poisson}}
 \newcommand{\stdev}{\text{Stdev}}
+\newcommand{\exponential}{\text{Exponential}}
+\newcommand{\normal}{\text{Normal}}
+\newcommand{\curly}[1]{\left\{ #1 \right\}}
+\newcommand{\soft}[1]{\left( #1 \right)}
+\newcommand{\hard}[1]{\left[ #1 \right]}
 
 \title{Probability and Statistics Notes}
 \author{Tim Harding}
@@ -86,7 +91,7 @@
 \end{align*}
 
 \subsection{Conditional Probability}
-Use tables for evaluating conditional probabilities.
+Use tables and tree diagrams for evaluating conditional probabilities.
 \begin{equation*}
     P(A|B) = \frac{P(A \cap B)}{P(B)}
 \end{equation*}
@@ -124,6 +129,7 @@ Use tables for evaluating conditional probabilities.
     E(c_1 u_1(X) + c_2 u_2(X)) &= c_1 E(u_1(X)) + c_2 E(u_2(X))
 \end{align*}
 \begin{align*}
+    \var(X) &= \sum (x_i - \mu)^2 f(x) \\
     \var(X) &= E(X^2) - \mu^2 \\
     \var(cX) &= c^2 \var(X) \\
     \var(X + c) &= \var(X)
@@ -132,7 +138,7 @@ Use tables for evaluating conditional probabilities.
     s^2 &= \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x})^2
 \end{align*}
 
-\subsection{Bernoulli distribution}
+\subsection{Bernoulli}
 
 $p \equiv$ probability of success for each experiment.
 \begin{align*}
@@ -142,7 +148,7 @@ $p \equiv$ probability of success for each experiment.
     \var(X) &= p(1-p)
 \end{align*}
 
-\subsection{Binomial distribution}
+\subsection{Binomial}
 $n \equiv$ number of trials, $p \equiv$ probability of success for each trial.
 \begin{align*}
     X &\sim \binomial(n, p) \\
@@ -154,13 +160,57 @@ $n \equiv$ number of trials, $p \equiv$ probability of success for each trial.
     \var(X) &= np(1-p)
 \end{align*}
 
-\subsection{Poisson distribution}
-Used when you expect to see $\lambda$ occurances over some interval. Also used to approximate a binomial distribution when $n$ is large and $p$ is small.
+\subsection{Poisson}
+Used when you expect to see $\lambda$ occurances over some interval. Also used to approximate a binomial distribution when $n$ is large and $p$ is small, in which case $\lambda = np$. If the interval used for $\lambda$ is not the interval of the probability to be found, replace $\lambda$ with $\lambda h$ where $h$ scales the intervals to match.
 \begin{align*}
     X &\sim \poisson(\lambda) \\
     f(x) &= \frac{e^{-\lambda} \lambda^x}{x!} \\
     E(X) &= \lambda \\
     \var(X) &= \lambda
+\end{align*}
+
+\subsection{Exponential}
+Models lifetimes and inter-arrival times. Given a process with a $\poisson(\lambda h)$ distribution and an expected wait time to the first event $\theta = \frac{1}{\lambda}$,
+\begin{align*}
+    X &\sim \exponential(\theta) \\
+    f(x) &= \frac{e^{-\frac{x}{\theta}}}{\theta} \\
+    F(x) &= 1 - e^{-\frac{x}{\theta}} \\
+    E(X) &= \theta \\
+    \var(X) &= \theta^2
+\end{align*}
+
+\section{Continuous distributions}
+
+\begin{align*}
+    F(x) &= \int_{-\infty}^x f(y) \ dy
+\end{align*}
+
+\subsection{Uniform distribution}
+\begin{align*}
+    f(x) &= \frac{1}{b - a} \ ; \ x \in [a, b] \\
+    E(X) &= \frac{a + b}{2} \\
+    \var(X) &= \frac{(a + b)^2}{12}
+\end{align*}
+
+\subsection{Normal distribution}
+A linear function of normal random variables is normal.
+\begin{align*}
+    X \sim \normal(\mu, \sigma^2) \implies \bar{X} \sim \normal\soft{\mu, \frac{\sigma^2}{n}}
+\end{align*}
+\begin{align*}
+    \sum X_i \sim \normal(n\mu, n\sigma^2)
+\end{align*}
+\begin{align*}
+    z &= \frac{X - \mu}{\sigma_X}
+\end{align*}
+
+\subsection{Central limit theorem}
+If $n \geq 30$,
+\begin{align*}
+    X_i &\sim \normal(\mu, \sigma_X^2) \\
+    \bar{X} &\sim \normal\soft{\mu, \frac{\sigma_X^2}{n}} \\
+    \sigma_{\bar{X}}^2 &= \frac{\sigma_X^2}{n} \\
+    z &= \frac{\bar{X} - \mu}{\sigma_{\bar{X}}}
 \end{align*}
 
 \end{multicols*}
