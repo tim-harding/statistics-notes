@@ -203,14 +203,23 @@ A linear function of normal random variables is normal.
 \begin{align*}
     z &= \frac{X - \mu}{\sigma_X}
 \end{align*}
-
-\subsection{Central limit theorem}
-If $n \geq 30$,
 \begin{align*}
     X_i &\sim \normal(\mu, \sigma_X^2) \\
     \bar{X} &\sim \normal\soft{\mu, \frac{\sigma_X^2}{n}} \\
     \sigma_{\bar{X}}^2 &= \frac{\sigma_X^2}{n} \\
     z &= \frac{\bar{X} - \mu}{\sigma_{\bar{X}}}
+\end{align*}
+
+\subsection{Central limit theorem}
+Given $n \geq 30$ and $X \sim \text{Unknown}$,
+\begin{align*}
+    \bar{X} \ &\dot{\sim} \ \normal\soft{\mu, \frac{\sigma^2}{n}}
+\end{align*}
+
+\subsection{Student's $t$ distribution}
+When $\sigma^2$ is unknown, use the $t$ distribution with $n - 1$ degrees of freedom.
+\begin{align*}
+    \frac{\bar{X} - \mu}{\soft{\frac{s}{\sqrt{n}}}} \sim t_{n - 1}
 \end{align*}
 
 \end{multicols*}
