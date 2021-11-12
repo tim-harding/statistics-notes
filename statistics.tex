@@ -182,7 +182,9 @@ Models lifetimes and inter-arrival times. Given a process with a $\poisson(\lamb
 \section{Continuous distributions}
 
 \begin{align*}
-    F(x) &= \int_{-\infty}^x f(y) \ dy
+    F(x) &= \int_{-\infty}^x f(y) \ dy \\
+    E(X) &= \int_{-\infty}^\infty x \ f(x) \ dx \\
+    \var(X) &= \int_{-\infty}^\infty (x - \mu)^2 \ f(x) \ dx
 \end{align*}
 
 \subsection{Uniform distribution}
