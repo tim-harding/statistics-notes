@@ -224,5 +224,19 @@ When $\sigma^2$ is unknown, use the $t$ distribution with $n - 1$ degrees of fre
     \frac{\bar{X} - \mu}{\soft{\frac{s}{\sqrt{n}}}} \sim t_{n - 1}
 \end{align*}
 
+\section{Interval estimation}
+
+\subsection{Confidence intervals}
+\begin{align*}
+    \bar{X} &\pm \frac{\sigma}{\sqrt{n}} \times z_{\frac{\alpha}{2}} \\
+    \bar{X} &\pm \frac{s}{\sqrt{n}} \times t_{\frac{\alpha}{2}, n - 1}
+\end{align*}
+
+\subsection{Confidence intervals for proportions}
+If $n\hat{p} \geq 5$ and $n(1 - \hat{p}) \geq 5$, then
+\begin{align*}
+    \hat{p} &\pm z_{\frac{\alpha}{2}} \sqrt{\frac{\hat{p} (1 - \hat{p})}{n}}
+\end{align*}
+
 \end{multicols*}
 \end{document}
