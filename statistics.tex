@@ -196,7 +196,7 @@ Models lifetimes and inter-arrival times. Given a process with a $\poisson(\lamb
 \end{align*}
 
 \subsection{Normal distribution}
-A linear function of normal random variables is normal.
+A linear function of normal random variables is normal. Note that invNorm inverts the normal CDF, it does not give back a $z$ value that bounds an area on both ends.
 \begin{align*}
     X \sim \normal(\mu, \sigma^2) \implies \bar{X} \sim \normal\soft{\mu, \frac{\sigma^2}{n}}
 \end{align*}
