@@ -257,26 +257,15 @@ Include $H_0$ and $H_a$.
     z &= \frac{\bar{x} - \mu_0}{\frac{\sigma}{\sqrt{n}}} \\
     t &= \frac{\bar{x} - \mu_0}{\frac{s}{\sqrt{n}}}
 \end{align*}
-
-Rules for when to reject $H_0$ follow.
-
-\subsubsection{Right tailed, $H_0 : \mu > \mu_0$}
-\begin{align*}
-    z &> z_\alpha \\
-    t &> t_{\alpha, n - 1}
-\end{align*}
-
-\subsubsection{Left tailed, $H_0 : \mu < \mu_0$}
-\begin{align*}
-    z &< -z_\alpha \\
-    t &< -t_{\alpha, n - 1}
-\end{align*}
-
-\subsubsection{Two tailed, $H_0 : \mu \neq \mu_0$}
-\begin{align*}
-    |z| &> z_\alpha \\
-    |t| &> t_{\alpha, n - 1}
-\end{align*}
+\begin{center}
+    \begin{tabular}{|l|l|l|l|}
+        \hline
+                         & $H_0: \mu > \mu_0$      & $H_0: \mu < \mu_0$       & $H_0: \mu \neq \mu_0$     \\ \hline
+        Name             & Right tailed            & Left tailed              & Two tailed                \\ \hline
+        $\sigma$ known   & $z > z_\alpha$          & $z < -z_\alpha$          & $|z| > z_\alpha$          \\ \hline
+        $\sigma$ unknown & $t > t_{\alpha, n - 1}$ & $t < -t_{\alpha, n - 1}$ & $|t| > t_{\alpha, n - 1}$ \\ \hline
+    \end{tabular}
+\end{center}
 
 \end{multicols*}
 \end{document}
