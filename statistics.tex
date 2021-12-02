@@ -241,9 +241,7 @@ Applies when given a population proportion $\hat{p}$. If $n\hat{p} \geq 5$ and $
 
 \section{Hypothesis testing}
 
-\subsection{Steps}
-
-\subsubsection{State hypotheses}
+\subsection{State hypotheses}
 Include $H_0$ and $H_a$.
 \begin{center}
     \begin{tabular}{|l|l|l|}
@@ -253,6 +251,32 @@ Include $H_0$ and $H_a$.
         Keep $H_0$   & Correct               & \textbf{Type 2 error} \\ \hline
     \end{tabular}
 \end{center}
+
+\subsection{Test statistic}
+\begin{align*}
+    z &= \frac{\bar{x} - \mu_0}{\frac{\sigma}{\sqrt{n}}} \\
+    t &= \frac{\bar{x} - \mu_0}{\frac{s}{\sqrt{n}}}
+\end{align*}
+
+Rules for when to reject $H_0$ follow.
+
+\subsubsection{Right tailed, $H_0 : \mu > \mu_0$}
+\begin{align*}
+    z &> z_\alpha \\
+    t &> t_{\alpha, n - 1}
+\end{align*}
+
+\subsubsection{Left tailed, $H_0 : \mu < \mu_0$}
+\begin{align*}
+    z &< -z_\alpha \\
+    t &< -t_{\alpha, n - 1}
+\end{align*}
+
+\subsubsection{Two tailed, $H_0 : \mu \neq \mu_0$}
+\begin{align*}
+    |z| &> z_\alpha \\
+    |t| &> t_{\alpha, n - 1}
+\end{align*}
 
 \end{multicols*}
 \end{document}
