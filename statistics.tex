@@ -4,7 +4,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{multicol}
-\usepackage[margin=0.5in]{geometry}
+\usepackage[margin=0.45in]{geometry}
 
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em}
@@ -16,10 +16,13 @@
 \newcommand{\stdev}{\text{Stdev}}
 \newcommand{\exponential}{\text{Exponential}}
 \newcommand{\normal}{\text{Normal}}
+\newcommand{\normalcdf}{\text{Normalcdf}}
 \newcommand{\tcdf}{\text{Tcdf}}
 \newcommand{\curly}[1]{\left\{ #1 \right\}}
 \newcommand{\soft}[1]{\left( #1 \right)}
 \newcommand{\hard}[1]{\left[ #1 \right]}
+
+\pagenumbering{gobble}
 
 \title{Probability and Statistics Notes}
 \author{Tim Harding}
@@ -258,26 +261,54 @@ Include $H_0$ and $H_a$.
     z &= \frac{\bar{x} - \mu_0}{\frac{\sigma}{\sqrt{n}}} \\
     t &= \frac{\bar{x} - \mu_0}{\frac{s}{\sqrt{n}}}
 \end{align*}
+\begin{align*}
+    \text{Right tailed:} \quad & H_0: \mu > \mu_0 \\
+    \text{Left tailed:}  \quad & H_0: \mu < \mu_0 \\
+    \text{Two tailed:}   \quad & H_0: \mu \neq \mu_0
+\end{align*}
+
+\subsection{p-value}
+\begin{align*}
+    \alpha &\equiv \text{desired significance} \\
+    p &\equiv \text{attained significance} \\
+    p &= P(H_a | H_0)
+\end{align*}
+
+Find the probability of getting the attained statistic if $H_0$ is true. If $p < \alpha$, meaning that it is less likely that $\alpha$ to see this value when $H_0$ is true, then reject $H_0$.
+
+Rejection conditions:
 \begin{center}
     \begin{tabular}{|l|l|l|l|}
         \hline
-                         & $H_0: \mu > \mu_0$        & $H_0: \mu < \mu_0$         & $H_0: \mu \neq \mu_0$              \\ \hline
-        Name             & Right tailed              & Left tailed                & Two tailed                         \\ \hline
-        $\sigma$ known   & $z > z_\alpha$            & $z < -z_\alpha$            & $|z| > z_\alpha$                   \\ \hline
-        $\sigma$ unknown & $t > t_{\alpha, n - 1}$   & $t < -t_{\alpha, n - 1}$   & $|t| > t_{\alpha, n - 1}$          \\ \hline
-        p-value          & $\tcdf(t, \infty, n - 1)$ & $\tcdf(-\infty, t, n - 1)$ & $2 \times \tcdf(t, \infty, n - 1)$ \\ \hline
+                         & $H_0: \mu > \mu_0$ & $H_0: \mu < \mu_0$ & $H_0: \mu \neq \mu_0$ \\ \hline
+        $\sigma$ known   & $P(Z > z)$         & $P(Z < z)$         & $2P(Z > z)$           \\ \hline
+        $\sigma$ unknown & $P(T > t)$         & $P(T < t)$         & $2P(T > t)$           \\ \hline
     \end{tabular}
 \end{center}
 
-$\alpha \equiv desired significance$
-$p \equiv attained significance$
-Significance means the probability of getting the attained statistic assuming that the null hypothesis is true.
+\begin{center}
+    \begin{tabular}{|l|l|l|l|}
+        \hline
+                              & $\sigma$ known                   & $\sigma$ unknown                   \\ \hline
+        $H_0: \mu > \mu_0$    & $\normalcdf(z, \infty)$          & $\tcdf(t, \infty, n - 1)$          \\ \hline
+        $H_0: \mu < \mu_0$    & $\normalcdf(-\infty, z)$         & $\tcdf(-\infty, t, n - 1)$         \\ \hline
+        $H_0: \mu \neq \mu_0$ & $2 \times \normalcdf(z, \infty)$ & $2 \times \tcdf(t, \infty, n - 1)$ \\ \hline
+    \end{tabular}
+\end{center}
 
-$p = P(H_a | H_0)$
+\subsection{Critical section}
 
-if $p < \alpha$ then reject $H_0$.
+Rejection conditions:
+\begin{center}
+    \begin{tabular}{|l|l|l|l|}
+        \hline
+                         & $H_0: \mu > \mu_0$        & $H_0: \mu < \mu_0$         & $H_0: \mu \neq \mu_0$     \\ \hline
+        $\sigma$ known   & $z > z_\alpha$            & $z < -z_\alpha$            & $|z| > z_\alpha$          \\ \hline
+        $\sigma$ unknown & $t > t_{\alpha, n - 1}$   & $t < -t_{\alpha, n - 1}$   & $|t| > t_{\alpha, n - 1}$ \\ \hline
+    \end{tabular}
+\end{center}
 
-
+\subsection{Conclusion statement}
 
 \end{multicols*}
 \end{document}
