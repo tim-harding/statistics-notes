@@ -16,6 +16,7 @@
 \newcommand{\stdev}{\text{Stdev}}
 \newcommand{\exponential}{\text{Exponential}}
 \newcommand{\normal}{\text{Normal}}
+\newcommand{\tcdf}{\text{Tcdf}}
 \newcommand{\curly}[1]{\left\{ #1 \right\}}
 \newcommand{\soft}[1]{\left( #1 \right)}
 \newcommand{\hard}[1]{\left[ #1 \right]}
@@ -260,12 +261,23 @@ Include $H_0$ and $H_a$.
 \begin{center}
     \begin{tabular}{|l|l|l|l|}
         \hline
-                         & $H_0: \mu > \mu_0$      & $H_0: \mu < \mu_0$       & $H_0: \mu \neq \mu_0$     \\ \hline
-        Name             & Right tailed            & Left tailed              & Two tailed                \\ \hline
-        $\sigma$ known   & $z > z_\alpha$          & $z < -z_\alpha$          & $|z| > z_\alpha$          \\ \hline
-        $\sigma$ unknown & $t > t_{\alpha, n - 1}$ & $t < -t_{\alpha, n - 1}$ & $|t| > t_{\alpha, n - 1}$ \\ \hline
+                         & $H_0: \mu > \mu_0$        & $H_0: \mu < \mu_0$         & $H_0: \mu \neq \mu_0$              \\ \hline
+        Name             & Right tailed              & Left tailed                & Two tailed                         \\ \hline
+        $\sigma$ known   & $z > z_\alpha$            & $z < -z_\alpha$            & $|z| > z_\alpha$                   \\ \hline
+        $\sigma$ unknown & $t > t_{\alpha, n - 1}$   & $t < -t_{\alpha, n - 1}$   & $|t| > t_{\alpha, n - 1}$          \\ \hline
+        p-value          & $\tcdf(t, \infty, n - 1)$ & $\tcdf(-\infty, t, n - 1)$ & $2 \times \tcdf(t, \infty, n - 1)$ \\ \hline
     \end{tabular}
 \end{center}
+
+$\alpha \equiv desired significance$
+$p \equiv attained significance$
+Significance means the probability of getting the attained statistic assuming that the null hypothesis is true.
+
+$p = P(H_a | H_0)$
+
+if $p < \alpha$ then reject $H_0$.
+
+
 
 \end{multicols*}
 \end{document}
